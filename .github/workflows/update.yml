@@ -2,7 +2,7 @@ name: update laws
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 7 * * *' # every day at 7 am UTC
+    - cron: '0 0 * * *' # utc 00:00, tw 08:00
 
 permissions:
   contents: write
@@ -26,6 +26,7 @@ jobs:
         run: bb extract-laws
 
       - name: commit and push
+        shell: bash {0}
         run: |
           git config --global user.name 'Taiwan Laws'
           git config --global user.email 'taiwan-laws@users.noreply.github.com'
