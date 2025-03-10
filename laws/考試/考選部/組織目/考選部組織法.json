@@ -1,0 +1,48 @@
+{
+  "LawArticles" : [ {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 1 條",
+    "ArticleContent" : "考試院為辦理全國公務人員與專門職業及技術人員考選行政事宜，特設考選部（以下簡稱本部）。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 2 條",
+    "ArticleContent" : "本部對於承辦考選行政事務之機關有指示監督之權。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 3 條",
+    "ArticleContent" : "本部掌理下列事項：\r\n一、考選政策、制度、法規之資料蒐集、規劃、擬訂、研究發展及公務人才招募。\r\n二、公務人員考試之典試、試務及業務法令之擬議、解釋。\r\n三、專門職業及技術人員考試之典試、試務及業務法令之擬議、解釋。\r\n四、國家考試試題之編製、管理、分析及測驗技術之研究發展。\r\n五、國家考試數位發展及資通安全防護之規劃及管理。\r\n六、其他有關考選行政事宜之政策規劃、執行及發展。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 4 條",
+    "ArticleContent" : "本部置部長一人，特任；政務次長一人，職務比照簡任第十四職等；常務次長一人，職務列簡任第十四職等。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 5 條",
+    "ArticleContent" : "本部置主任秘書，職務列簡任第十二職等。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 6 條",
+    "ArticleContent" : "本部為強化國家考試測驗評量研究功能，提升測驗技術及試題品質，得依聘用人員聘用條例之規定，聘用具測驗評量專長之專業研究人員三人至七人。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 7 條",
+    "ArticleContent" : "本部各職稱之官等職等及員額，另以編制表定之。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 8 條",
+    "ArticleContent" : "本法施行日期，由考試院定之。"
+  } ],
+  "LawURL" : "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=R0000001",
+  "LawLevel" : "法律",
+  "EngLawName" : "Organic Act of the Ministry of Examination",
+  "LawModifiedDate" : "20230517",
+  "LawAttachements" : [ ],
+  "LawEffectiveNote" : "",
+  "LawEffectiveDate" : "",
+  "LawCategory" : "考試＞考選部＞組織目",
+  "LawForeword" : "",
+  "LawHasEngVersion" : "Y",
+  "LawName" : "考選部組織法",
+  "LawHistories" : "1.中華民國三十七年七月二十一日總統令制定公布全文 18 條\r\n2.中華民國七十八年一月二十三日總統令修正公布全文 18 條\r\n3.中華民國八十三年十一月二十三日總統（83）華總（一）義字第 7145\r\n  號令修正公布全文 21 條\r\n4.中華民國一百十二年五月十七日總統華總一義字第 11200040951  號令\r\n  修正公布全文 8  條；施行日期，由考試院定之\r\n  中華民國一百十二年七月二十七日考試院考臺考一字第 11206001291\r\n  號令發布定自一百十二年九月一日施行",
+  "LawAbandonNote" : ""
+}

@@ -1,0 +1,20 @@
+{
+  "LawArticles" : [ {
+    "ArticleType" : "A",
+    "ArticleNo" : "1",
+    "ArticleContent" : "准立法院中華民國七十六年七月八日（76）台院議字第 1641 號咨，宣告臺灣地區自七十六年七月十五日零時起解嚴。"
+  } ],
+  "LawURL" : "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000016",
+  "LawLevel" : "憲法",
+  "EngLawName" : "",
+  "LawModifiedDate" : "19870714",
+  "LawAttachements" : [ ],
+  "LawEffectiveNote" : "",
+  "LawEffectiveDate" : "",
+  "LawCategory" : "憲法",
+  "LawForeword" : "",
+  "LawHasEngVersion" : "N",
+  "LawName" : "臺灣地區解嚴令",
+  "LawHistories" : "1.中華民國七十六年七月十四日總統令",
+  "LawAbandonNote" : ""
+}

@@ -1,0 +1,16 @@
+{:paths ["src"]
+ :tasks {:requires ([clojure.java.io :as io]
+                    [cheshire.core :as json]
+                    [taiwan-laws :as t])
+         prepare-jsons
+         {:doc "download and prepare law jsons"
+          :task (do (t/download-and-unzip-laws)
+                    (t/jq-process-jsons))}
+         extract-laws
+         {:doc "extract and process laws"
+          :task
+          (let [laws (-> (io/reader "blob/law.jq.json") (json/parse-stream true) :Laws)
+                orders (-> (io/reader "blob/order.jq.json") (json/parse-stream true) :Laws)]
+            (t/extract-laws laws)
+            (t/extract-laws orders))}}}
+

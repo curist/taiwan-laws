@@ -1,0 +1,31 @@
+{
+  "LawArticles" : [ {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 1 條",
+    "ArticleContent" : "本標準依規費法第十條規定訂定之。\r\n"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 2 條",
+    "ArticleContent" : "向本團申請使用演奏廳場地及設備，應依本標準規定繳納使用規費，收費基準如附表。\r\n"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 3 條",
+    "ArticleContent" : "本標準自發布日施行。\r\n"
+  } ],
+  "LawURL" : "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=H0170035",
+  "LawLevel" : "命令",
+  "EngLawName" : "",
+  "LawModifiedDate" : "20221201",
+  "LawAttachements" : [ {
+    "FileName" : "附表：國立臺灣交響樂團演奏廳場地設備使用收費基準表.PDF",
+    "FileURL" : "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000329452"
+  } ],
+  "LawEffectiveNote" : "",
+  "LawEffectiveDate" : "",
+  "LawCategory" : "行政＞文化部＞建設目",
+  "LawForeword" : "",
+  "LawHasEngVersion" : "N",
+  "LawName" : "國立臺灣交響樂團演奏廳場地設備使用收費標準",
+  "LawHistories" : "1.中華民國九十四年九月二十八日行政院文化建設委員會文參字第 09411\r\n  22661 號令訂定發布全文 6  條；並自發布日施行\r\n2.中華民國一百零二年一月二十五日國立臺灣交響樂團樂行字第 1022000\r\n  093 號令修正發布第 2  條條文之附表；並自發布日施行\r\n3.中華民國一百十一年十二月一日國立臺灣交響樂團樂行字第 111300119\r\n  52  號令修正發布全文 3  條；並自發布日施行\r\n",
+  "LawAbandonNote" : ""
+}

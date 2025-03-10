@@ -1,0 +1,57 @@
+{
+  "LawArticles" : [ {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 1 條",
+    "ArticleContent" : "本標準依海洋污染防治法第八條第一項規定訂定之。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 2 條",
+    "ArticleContent" : "本標準用詞，定義如下：\r\n一、一級水產用水：指可供嘉臘魚及紫菜類培養用水之水源。\r\n二、二級水產用水：指可供虱目魚、烏魚、龍鬚菜及其他食用海藻培養用水之水源。\r\n三、工業用水：指可供冷卻用水之水源。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 3 條",
+    "ArticleContent" : "海域環境分為甲、乙、丙三類，其適用性質如下：\r\n一、甲類：適用於一級水產用水、二級水產用水、工業用水、游泳及環境保育。\r\n二、乙類：適用於二級水產用水、工業用水及環境保育。\r\n三、丙類：適用於環境保育。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 4 條",
+    "ArticleContent" : "保護人體健康之海洋環境品質標準，適用於甲、乙、丙三類海域環境，其水質項目及標準值如附表一。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 5 條",
+    "ArticleContent" : "保護生活環境之海洋環境品質標準，依甲、乙、丙三類海域環境，其水質項目及標準值如附表二。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 6 條",
+    "ArticleContent" : "臺灣地區沿海海域環境分類，以臺灣本島及澎湖群島、蘭嶼、綠島等離島，由海岸向外延伸之領海為範圍。\r\n依據海域之最佳用途、涵容能力及水質狀況，訂定臺灣地區沿海海域範圍及海域分類如附表三。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 7 條",
+    "ArticleContent" : "海域環境經自淨後達到相關海洋環境品質標準時，即不得降低其海域環境分類及相關環境標準值。\r\n中央主管機關得於每三年檢討修正本標準。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 8 條",
+    "ArticleContent" : "本標準自發布日施行。"
+  } ],
+  "LawURL" : "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0040029",
+  "LawLevel" : "命令",
+  "EngLawName" : "Marine Environment Classification and Marine Environment Quality Standards",
+  "LawModifiedDate" : "20240425",
+  "LawAttachements" : [ {
+    "FileName" : "附表一.PDF",
+    "FileURL" : "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000367035"
+  }, {
+    "FileName" : "附表二.PDF",
+    "FileURL" : "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000367036"
+  }, {
+    "FileName" : "附表三.PDF",
+    "FileURL" : "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000367037"
+  } ],
+  "LawEffectiveNote" : "",
+  "LawEffectiveDate" : "",
+  "LawCategory" : "行政＞海洋委員會＞海洋資源目",
+  "LawForeword" : "",
+  "LawHasEngVersion" : "Y",
+  "LawName" : "海域環境分類及海洋環境品質標準",
+  "LawHistories" : "1.中華民國九十年十二月二十六日行政院環境保護署（90）環署水字第 0\r\n  081750  號令訂定發布全文 10 條\r\n2.中華民國一百零七年二月十三日行政院環境保護署環署水字第 1070012\r\n  375 號令修正發布第 4～7 條條文\r\n3.中華民國一百十三年四月二十五日海洋委員會海保字第 1130004128 號\r\n  令修正發布全文 8  條；並自發布日施行\r\n",
+  "LawAbandonNote" : ""
+}

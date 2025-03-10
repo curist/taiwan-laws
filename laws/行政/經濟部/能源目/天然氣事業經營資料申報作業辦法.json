@@ -1,0 +1,53 @@
+{
+  "LawArticles" : [ {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 1 條",
+    "ArticleContent" : "本辦法依天然氣事業法第五十三條第二項規定訂定之。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 2 條",
+    "ArticleContent" : "本辦法第三條至第五條資料申報之受理及查核，中央主管機關得視業務需要，委任經濟部能源署或委託專業機構辦理。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 3 條",
+    "ArticleContent" : "公用天然氣事業應於每月十五日前，將上月供氣數量、用戶類別及各類別用戶數，向中央主管機關申報；其申報資料表格式如附表一。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 4 條",
+    "ArticleContent" : "天然氣生產事業、天然氣進口事業應於每月十五日前，將上月生產數量、進口數量、出口數量、熱值及其他相關資料，向中央主管機關申報；其申報資料表格式如附表二。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 5 條",
+    "ArticleContent" : "天然氣事業應於每年三月三十一日前，將前一年度下半年之營業收支盈虧狀況表，每年九月三十日前，將本年度上半年之營業收支盈虧狀況表，向中央主管機關申報；其申報之狀況表格式如附表三。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 6 條",
+    "ArticleContent" : "前三條之申報資料得以書面或電子文件送中央主管機關。"
+  }, {
+    "ArticleType" : "A",
+    "ArticleNo" : "第 7 條",
+    "ArticleContent" : "本辦法自發布日施行。"
+  } ],
+  "LawURL" : "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0130048",
+  "LawLevel" : "命令",
+  "EngLawName" : "",
+  "LawModifiedDate" : "20231023",
+  "LawAttachements" : [ {
+    "FileName" : "附表一  公用天然氣事業每月申報資料表.PDF",
+    "FileURL" : "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000098077"
+  }, {
+    "FileName" : "附表二  天然氣生產事業、天然氣進口事業每月申報資料表.PDF",
+    "FileURL" : "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000098078"
+  }, {
+    "FileName" : "附表三  天然氣事業每半年申報營業收支盈虧狀況表.PDF",
+    "FileURL" : "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000098079"
+  } ],
+  "LawEffectiveNote" : "",
+  "LawEffectiveDate" : "",
+  "LawCategory" : "行政＞經濟部＞能源目",
+  "LawForeword" : "",
+  "LawHasEngVersion" : "N",
+  "LawName" : "天然氣事業經營資料申報作業辦法",
+  "LawHistories" : "1.中華民國一百年七月七日經濟部經能字第 10004604070  號令訂定發布\r\n  全文 7  條；並自發布日施行\r\n  中華民國一百十二年九月十三日行政院院臺規字第 1121031987 號公告\r\n  第 2  條所列屬「經濟部能源局」之權責事項，自一百十二年九月二十\r\n  六日起改由「經濟部能源署」管轄\r\n2.中華民國一百十二年十月二十三日經濟部經能字第 11258024690  號令\r\n  修正發布第 2  條條文",
+  "LawAbandonNote" : ""
+}
