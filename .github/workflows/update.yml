@@ -1,0 +1,35 @@
+name: update laws
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *' # every day at 7 am UTC
+
+permissions:
+  contents: write
+
+jobs:
+  update-laws:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup babashka
+        run: |
+          curl -sL -o install-bb https://raw.githubusercontent.com/babashka/babashka/master/install
+          chmod +x install-bb
+          sudo ./install-bb
+
+      - uses: actions/checkout@v3
+
+      - name: fetch law jsons
+        run: bb prepare-jsons
+
+      - name: extract law jsons
+        run: bb extract-laws
+
+      - name: commit and push
+        run: |
+          git config --global user.name 'Taiwan Laws'
+          git config --global user.email 'taiwan-laws@users.noreply.github.com'
+          git add .
+          git commit -m "updated @ $(date +%Y-%m-%d)"
+          git push
+
