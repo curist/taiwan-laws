@@ -1,0 +1,17 @@
+# {{name}}
+{% if name-note %}> {{name-note}}
+{% endif %}
+*法規類別*：{{category}}
+*異動日期*：{{modified-date}}  
+*法規網址*：{{url}}
+{% if abandoned|not-empty %}*已廢止*：是{% endif %}
+{% if foreword %}## 前言
+{{ foreword }}{% endif %}
+{% if chapters %}## 編章節
+{{ chapters }}{% endif %}
+{% if articles %}## 法條
+{{ articles }}{% endif %}
+{% if attachments %}## 附件
+{{ attachments }}{% endif %}
+{% if histories %}## 沿革
+{{ histories }}{% endif %}

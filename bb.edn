@@ -6,13 +6,13 @@
          {:doc "download and prepare law jsons"
           :task (do (t/download-and-unzip-laws)
                     (t/jq-process-jsons))}
-         extract-laws
+         process-law-jsons
          {:doc "extract and process laws"
           :task
           (let [laws (-> (io/reader "blob/law.jq.json")
                          (json/parse-stream true) :Laws)
                 orders (-> (io/reader "blob/order.jq.json")
                            (json/parse-stream true) :Laws)]
-            (t/extract-laws laws "laws")
-            (t/extract-laws orders "laws"))}}}
+            (t/process-law-jsons laws "laws")
+            (t/process-law-jsons orders "laws"))}}}
 

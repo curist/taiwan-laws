@@ -22,8 +22,8 @@ jobs:
       - name: fetch law jsons
         run: bb prepare-jsons
 
-      - name: extract law jsons
-        run: bb extract-laws
+      - name: extract and process law jsons
+        run: bb process-law-jsons
 
       - name: commit and push
         shell: bash {0}
