@@ -60,6 +60,23 @@
 (defn- format-article-no [article-no]
   (if (re-find #"^\d+$" article-no) "" article-no))
 
+(defn- numbering-articles [articles]
+  (if (> (count articles) 1)
+    (map #(str "1. " (string/join "  \n" %)) articles)
+    (let [sub-articles (first articles)]
+      (if (re-find #"：$" (first sub-articles))
+        (map #(str % "  ") sub-articles)
+        (if (> (count sub-articles) 1)
+          (map #(str "1. " %) sub-articles)
+          sub-articles)))))
+
+(defn- format-article [article]
+  (let [sub-articles (->> (string/split article #"\r\n")
+                          (partition-by #(nil? (re-find #"^.{1,2}[　、]" %)))
+                          (partition 2 2 [])
+                          (map #(apply concat %)))]
+    (string/join "\n" (numbering-articles sub-articles))))
+
 (defn- compose-law-articles [articles]
   (->> articles
        (map (fn [{:keys [ArticleType ArticleNo ArticleContent]}]
@@ -68,8 +85,8 @@
                   (str "#### " (string/trim ArticleContent))
                   (str "### " (string/trim ArticleContent)))
                 ;; articles
-                (str "##### " (format-article-no ArticleNo) "\n" ArticleContent ;; TODO: formatting this
-                     ))))
+                (str "##### " (format-article-no ArticleNo) "\n"
+                     (format-article ArticleContent)))))
        (string/join "\n\n")))
 
 (defn- law-json->markdown [law]
@@ -110,64 +127,4 @@
 
 (defn process-law-jsons [laws]
   (run! process-law-json laws))
-
-; (def the-law :the-law) ;; (first laws)
-; (->> (:LawArticles the-law)
-;      (partition-by :ArticleType)
-;      (partition 2))
-
-;; check article 27 & https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0000001&flno=27
-;; 30 also
-;; should handle 節, like https://law.moj.gov.tw/LawClass/LawAllPara.aspx?pcode=A0000001
-;; TODO: can we use chinese chapter names & use them as github markdown TOC target?
-;; # LawName
-;; ## laws 法條
-;; ### 章 chapter
-;; #### 節 chapter
-;; ##### 條 article
-;;
-;; interesting law fields
-;; LawModifiedDate 法規異動日期
-;; LawLevel 法規位階
-;; LawForeword 前言
-;; LawHistories
-;; LawURL
-;; LawAttachements?
-
-(comment
-  (def laws (-> (io/reader "blob/law.jq.json") (json/parse-stream true) :Laws))
-  (def orders (-> (io/reader "blob/order.jq.json") (json/parse-stream true) :Laws))
-
-  (extract-laws laws "laws")
-  (extract-laws orders "laws")
-  (defn filter-laws [laws filter-txt]
-    (filter (fn [law]
-              (and (not= "廢" (:LawAbandonNote law))
-                   (or (re-find (re-pattern filter-txt) (:LawName law))
-                       (re-find (re-pattern filter-txt) (:LawHistories law))
-                       (some #(re-find (re-pattern filter-txt) (:ArticleContent %))
-                             (:LawArticles law)))))
-            laws))
-
-  (defn find-laws [laws law-name]
-    (filter #(re-find (re-pattern law-name) (:LawName %)) laws))
-
-  (count laws)
-  (count orders)
-
-  (-> (filter-laws orders "二級電信管制射頻器材") count)
-  (find-laws laws "科學技術")
-
-  (find-laws laws "國家通訊傳播委員會組織法")
-  (find-laws laws "財團法人國家同步輻射研究中心設置條例")
-  (find-laws orders "證券投資顧問事業管理規則")
-
-  (->> (filter #(and (= "廢" (:LawAbandonNote %))
-                     (re-find #"^廢止法規" (:LawCategory %))) laws) count)
-
-  (->> (filter #(and (= "廢" (:LawAbandonNote %))
-                     (re-find #"^廢止法規" (:LawCategory %))) orders) count)
-
-  (count *1))
-
 
