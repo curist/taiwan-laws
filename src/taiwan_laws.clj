@@ -44,6 +44,19 @@
 (defn- is-section? [s]
   (re-find #"\s.+\s節\s.+" s))
 
+(defn- compose-chapter-link [s]
+  (let [chapter (string/trim s)
+        link (string/replace chapter #"\s" "-")]
+    (format "[%s](#%s)" chapter link)))
+
+(defn- compose-chapters [articles]
+  (->> articles
+       (filter (fn [{:keys [ArticleType]}] (= "C" ArticleType)))
+       (map (fn [{:keys [ArticleContent]}]
+              (str (if (is-section? ArticleContent) "  * " "* ")
+                   (compose-chapter-link ArticleContent))))
+       (string/join "\n")))
+
 (defn- format-article-no [article-no]
   (if (re-find #"^\d+$" article-no) "" article-no))
 
@@ -65,7 +78,8 @@
         law-name (string/replace law-name #"（.+）$" "")
         foreword (:LawForeword law)
         foreword (if (empty? foreword) "" (trim-line-breaks foreword))
-        articles (compose-law-articles (:LawArticles law))]
+        articles (compose-law-articles (:LawArticles law))
+        chapters (compose-chapters (:LawArticles law))]
     (render-file
      "law.md.template"
      {:name law-name
@@ -75,7 +89,7 @@
       :url (:LawURL law)
       :foreword foreword
       :abandoned (:LawAbandonNote law)
-      ;; :chapters :TODO
+      :chapters chapters
       :articles articles
       ;; :attachments :TODO
       ;; :histories :TODO
