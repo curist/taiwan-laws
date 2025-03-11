@@ -96,6 +96,12 @@
                      (format-article ArticleContent)))))
        (string/join "\n\n")))
 
+(defn- format-attachments [attachments]
+  (->> attachments
+       (map (fn [{:keys [FileName FileURL]}]
+              (format "* [%s](%s)" FileName FileURL)))
+       (string/join "\n")))
+
 (defn- format-histories [history]
   (let [histories (-> history
                       (string/replace #"^\d+\." "")
@@ -114,6 +120,7 @@
         foreword (if (empty? foreword) "" (trim-line-breaks foreword))
         articles (compose-law-articles (:LawArticles law))
         chapters (compose-chapters (:LawArticles law))
+        attachments (format-attachments (:LawAttachements law))
         histories (format-histories (:LawHistories law))]
     (render-file
      "law.md.template"
@@ -126,7 +133,7 @@
       :abandoned (:LawAbandonNote law)
       :chapters chapters
       :articles articles
-      ;; :attachments :TODO
+      :attachments attachments
       :histories histories})))
 
 (defn- process-law-json [law]
