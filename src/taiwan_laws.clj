@@ -96,6 +96,16 @@
                      (format-article ArticleContent)))))
        (string/join "\n\n")))
 
+(defn- format-histories [history]
+  (let [histories (-> history
+                      (string/replace #"^\d+\." "")
+                      (string/replace #"\r\n\d+\." "OXXXO")
+                      (string/split #"OXXXO"))]
+    (->> histories
+         (mapv #(string/replace % #"\r\n  " ""))
+         numbering-articles
+         (string/join "\n"))))
+
 (defn- law-json->markdown [law]
   (let [law-name (:LawName law)
         law-name-note (re-find #"（.+）$" law-name)
@@ -103,7 +113,8 @@
         foreword (:LawForeword law)
         foreword (if (empty? foreword) "" (trim-line-breaks foreword))
         articles (compose-law-articles (:LawArticles law))
-        chapters (compose-chapters (:LawArticles law))]
+        chapters (compose-chapters (:LawArticles law))
+        histories (format-histories (:LawHistories law))]
     (render-file
      "law.md.template"
      {:name law-name
@@ -116,8 +127,7 @@
       :chapters chapters
       :articles articles
       ;; :attachments :TODO
-      ;; :histories :TODO
-      })))
+      :histories histories})))
 
 (defn- process-law-json [law]
   (let [dir (->> law :LawCategory
