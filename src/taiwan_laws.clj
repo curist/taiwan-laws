@@ -81,21 +81,21 @@
       ;; :histories :TODO
       })))
 
-(defn- process-law-json [law base-dir]
+(defn- process-law-json [law]
   (let [dir (->> law :LawCategory
                  (re-seq #"[^＞\s]+")
-                 (string/join "/")
-                 (str base-dir "/"))
+                 (string/join "/"))
         law-name (:LawName law)
         law-name (string/replace law-name #"（.+）$" "")
-        json-path (str dir "/" law-name ".json")
-        md-path (str dir "/" law-name ".md")]
-    (fs/create-dirs dir)
+        json-path (str "json/" dir "/" law-name ".json")
+        md-path (str "laws/" dir "/" law-name ".md")]
+    (fs/create-dirs (str "json/" dir))
+    (fs/create-dirs (str "laws/" dir))
     (spit json-path (json/encode law {:pretty true}))
     (spit md-path (law-json->markdown law))))
 
-(defn process-law-jsons [laws base-dir]
-  (run! #(process-law-json % base-dir) laws))
+(defn process-law-jsons [laws]
+  (run! process-law-json laws))
 
 ; (def the-law :the-law) ;; (first laws)
 ; (->> (:LawArticles the-law)

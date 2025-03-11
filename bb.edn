@@ -13,6 +13,6 @@
                          (json/parse-stream true) :Laws)
                 orders (-> (io/reader "blob/order.jq.json")
                            (json/parse-stream true) :Laws)]
-            (t/process-law-jsons laws "laws")
-            (t/process-law-jsons orders "laws"))}}}
+            (t/process-law-jsons laws)
+            (t/process-law-jsons orders))}}}
 
