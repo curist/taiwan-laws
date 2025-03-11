@@ -1,8 +1,12 @@
 # 臺灣製產品 MIT 微笑標章審查及發證收費標準
 
-*法規類別*：行政＞經濟部＞產業目
-*異動日期*：2012/09/11  
-*法規網址*：https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030125
+**法規類別**：行政＞經濟部＞產業目
+
+**異動日期**：2012/09/11  
+
+**法規網址**：https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030125
+
+
 
 
 
