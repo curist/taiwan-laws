@@ -44,6 +44,9 @@
 (defn- is-section? [s]
   (re-find #"\s.+\s節\s.+" s))
 
+(defn- format-article-no [article-no]
+  (if (re-find #"^\d+$" article-no) "" article-no))
+
 (defn- compose-law-articles [articles]
   (->> articles
        (map (fn [{:keys [ArticleType ArticleNo ArticleContent]}]
@@ -52,7 +55,7 @@
                   (str "#### " (string/trim ArticleContent))
                   (str "### " (string/trim ArticleContent)))
                 ;; articles
-                (str "##### " ArticleNo "\n" ArticleContent ;; TODO: formatting this
+                (str "##### " (format-article-no ArticleNo) "\n" ArticleContent ;; TODO: formatting this
                      ))))
        (string/join "\n\n")))
 
