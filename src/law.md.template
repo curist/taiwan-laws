@@ -3,7 +3,9 @@
 {% endif %}
 
 {% if abandoned|not-empty %}> [!WARNING]
-> 已廢止{% endif %}
+> 已廢止
+{% endif %}
+
 **法規類別**：{{category}}
 
 **異動日期**：{{modified-date}}  
