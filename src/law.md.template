@@ -1,4 +1,6 @@
 # {{name}}
+{% if abandoned|not-empty %}> [!WARNING]
+> 已廢止{% endif %}
 {% if name-note %}> {{name-note}}
 {% endif %}
 **法規類別**：{{category}}
@@ -6,8 +8,6 @@
 **異動日期**：{{modified-date}}  
 
 **法規網址**：{{url}}
-
-{% if abandoned|not-empty %}**已廢止**：是{% endif %}
 
 {% if foreword|not-empty %}## 前言
 {{ foreword }}{% endif %}
