@@ -62,20 +62,27 @@
 
 (defn- numbering-articles [articles]
   (if (> (count articles) 1)
-    (map #(str "1. " (string/join "  \n" %)) articles)
-    (let [sub-articles (first articles)]
-      (if (re-find #"：$" (first sub-articles))
-        (map #(str % "  ") sub-articles)
-        (if (> (count sub-articles) 1)
-          (map #(str "1. " %) sub-articles)
-          sub-articles)))))
+    (map #(str "1. " %) articles)
+    articles))
+
+(defn- grouping-sub-articles
+  ([article]
+   (grouping-sub-articles [] (string/split article #"\r\n")))
+  ([grouped sub-articles]
+   (if (empty? sub-articles)
+     grouped
+     (let [[article & rest'] sub-articles]
+       (if (nil? (re-find #"：$" article))
+         (grouping-sub-articles (conj grouped article) rest')
+         (let [[article-body & [rest']]
+               (split-with #(re-find #"^.{1,2}[　、]" %) rest')]
+           (grouping-sub-articles
+            (conj grouped
+                  (string/join "  \n" (cons article article-body)))
+            rest')))))))
 
 (defn- format-article [article]
-  (let [sub-articles (->> (string/split article #"\r\n")
-                          (partition-by #(nil? (re-find #"^.{1,2}[　、]" %)))
-                          (partition 2 2 [])
-                          (map #(apply concat %)))]
-    (string/join "\n" (numbering-articles sub-articles))))
+  (->> article grouping-sub-articles numbering-articles (string/join "\n")))
 
 (defn- compose-law-articles [articles]
   (->> articles
