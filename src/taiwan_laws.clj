@@ -65,6 +65,10 @@
     (map #(str "1. " %) articles)
     articles))
 
+(defn- is-sub-article-content? [s]
+  (not (nil? (or (re-find #"^.{1,2}[　、]" s)
+                 (re-find #"^.（{1,2}）" s)))))
+
 (defn- grouping-sub-articles
   ([article]
    (grouping-sub-articles [] (string/split article #"\r\n")))
@@ -72,10 +76,11 @@
    (if (empty? sub-articles)
      grouped
      (let [[article & rest'] sub-articles]
-       (if (nil? (re-find #"：$" article))
+       (if (and (nil? (re-find #"：$" article))
+                (not (is-sub-article-content? article)))
          (grouping-sub-articles (conj grouped article) rest')
          (let [[article-body & [rest']]
-               (split-with #(re-find #"^.{1,2}[　、]" %) rest')]
+               (split-with is-sub-article-content? rest')]
            (grouping-sub-articles
             (conj grouped
                   (string/join "  \n" (cons article article-body)))
