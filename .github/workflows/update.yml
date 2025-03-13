@@ -33,5 +33,5 @@ jobs:
           git add .
           git commit -m "updated @ $(date +%Y-%m-%d)" && \
             git tag v$(date +%Y.%m.%d) && \
-            git push
+            git push --tags
 
