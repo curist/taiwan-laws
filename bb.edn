@@ -14,5 +14,12 @@
                 orders (-> (io/reader "blob/order.jq.json")
                            (json/parse-stream true) :Laws)]
             (t/process-law-jsons laws)
-            (t/process-law-jsons orders))}}}
+            (t/process-law-jsons orders))}
+         test {:doc "Run tests using eftest"
+               :extra-deps {eftest/eftest {:mvn/version "0.6.0"}}
+               :requires ([eftest.runner :refer [find-tests run-tests]])
+               :task (let [summary (run-tests (find-tests ["src"])
+                                              {:report eftest.report.pretty/report})
+                           exit-code (min 1 (+ (:error summary) (:fail summary)))]
+                       (System/exit exit-code))}}}
 

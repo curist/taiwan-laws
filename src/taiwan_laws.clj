@@ -66,25 +66,25 @@
     articles))
 
 (defn- is-sub-article-content? [s]
-  (not (nil? (or (re-find #"^[一二三四五六七八九十]{1,2}[　、]" s)
-                 (re-find #"^（[一二三四五六七八九十]{1,2}）" s)))))
+  (not (nil? (or (re-find #"^[一二三四五六七八九十]{1,2}[　、 ]" s)
+                 (re-find #"^（[一二三四五六七八九十]{1,2}）" s)
+                 (re-find #"^\d\." s)
+                 (re-find #"^[甲乙丙丁]等[：︰]" s)
+                 (re-find #"^\s*[┌│└├]" s)))))
 
-(defn- grouping-sub-articles
-  ([article]
-   (grouping-sub-articles [] (string/split article #"\r\n")))
-  ([grouped sub-articles]
-   (if (empty? sub-articles)
-     grouped
-     (let [[article & rest'] sub-articles]
-       (if (or (nil? (re-find #"[：︰]\s*$" article))
-               (is-sub-article-content? article))
-         (grouping-sub-articles (conj grouped article) rest')
-         (let [[article-body & [rest']]
-               (split-with is-sub-article-content? rest')]
-           (grouping-sub-articles
-            (conj grouped
-                  (string/join "  \n" (cons article article-body)))
-            rest')))))))
+(defn grouping-sub-articles [article]
+  (let [articles (vec (string/split article #"\r\n"))
+        split-indexes (->> (partition 2 1 articles)
+                           (map #(let [[a b] %]
+                                   (or (re-find #"[：︰]\s*$" a)
+                                       (is-sub-article-content? b))))
+                           (map-indexed (fn [idx item] (when (not item) (inc idx))))
+                           (filter identity))
+        split-indexes (concat [0] split-indexes [(count articles)])]
+    (->> split-indexes
+         (partition 2 1)
+         (map (fn [[start end]] (subvec articles start end)))
+         (map #(string/join "  \n" %)))))
 
 (defn- format-article [article]
   (->> article grouping-sub-articles numbering-articles (string/join "\n")))
