@@ -66,8 +66,8 @@
     articles))
 
 (defn- is-sub-article-content? [s]
-  (not (nil? (or (re-find #"^.{1,2}[　、]" s)
-                 (re-find #"^.（{1,2}）" s)))))
+  (not (nil? (or (re-find #"^[一二三四五六七八九十]{1,2}[　、]" s)
+                 (re-find #"^（[一二三四五六七八九十]{1,2}）" s)))))
 
 (defn- grouping-sub-articles
   ([article]
@@ -76,8 +76,8 @@
    (if (empty? sub-articles)
      grouped
      (let [[article & rest'] sub-articles]
-       (if (and (nil? (re-find #"：$" article))
-                (not (is-sub-article-content? article)))
+       (if (or (nil? (re-find #"[：︰]\s*$" article))
+               (is-sub-article-content? article))
          (grouping-sub-articles (conj grouped article) rest')
          (let [[article-body & [rest']]
                (split-with is-sub-article-content? rest')]
