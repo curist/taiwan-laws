@@ -1,0 +1,18 @@
+name: testing
+on: push
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup babashka
+        run: |
+          curl -sL -o install-bb https://raw.githubusercontent.com/babashka/babashka/master/install
+          chmod +x install-bb
+          sudo ./install-bb
+
+      - uses: actions/checkout@v3
+
+      - name: run tests
+        run: bb test
+
