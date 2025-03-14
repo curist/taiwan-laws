@@ -66,11 +66,12 @@
     articles))
 
 (defn- is-sub-article-content? [s]
-  (not (nil? (or (re-find #"^[一二三四五六七八九十]{1,2}[　、 ]" s)
-                 (re-find #"^（[一二三四五六七八九十]{1,2}）" s)
-                 (re-find #"^\d\." s)
-                 (re-find #"^[甲乙丙丁]等[：︰]" s)
-                 (re-find #"^\s*[┌│└├]" s)))))
+  (let [patterns [#"^[一二三四五六七八九十]{1,2}[　、 ]"
+                  #"^（[一二三四五六七八九十]{1,2}）"
+                  #"^\d\."
+                  #"^[甲乙丙丁]等[：︰]"
+                  #"^\s*[┌│└├]"]]
+    (some #(re-find % s) patterns)))
 
 (defn grouping-sub-articles [article]
   (let [articles (vec (string/split article #"\r\n"))
