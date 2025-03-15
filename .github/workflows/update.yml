@@ -24,7 +24,7 @@ jobs:
 
       - name: extract and process law jsons
         run: |
-          rm -rf json laws
+          rm -rf laws
           bb process-law-jsons
 
       - name: commit and push

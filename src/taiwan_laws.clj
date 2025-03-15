@@ -121,13 +121,7 @@
 (defn- law-json->markdown [law]
   (let [law-name (:LawName law)
         law-name-note (re-find #"（.+）$" law-name)
-        law-name (string/replace law-name #"（.+）$" "")
-        foreword (:LawForeword law)
-        foreword (if (empty? foreword) "" (trim-line-breaks foreword))
-        articles (compose-law-articles (:LawArticles law))
-        chapters (compose-chapters (:LawArticles law))
-        attachments (format-attachments (:LawAttachements law))
-        histories (format-histories (:LawHistories law))]
+        law-name (string/replace law-name #"（.+）$" "")]
     (render-file
      "law.md.template"
      {:name law-name
@@ -136,12 +130,12 @@
       :level (:LawLevel law)
       :modified-date (format-modified-date (:LawModifiedDate law))
       :url (:LawURL law)
-      :foreword foreword
+      :foreword (-> (:LawForeword law) trim-line-breaks)
       :abandoned (:LawAbandonNote law)
-      :chapters chapters
-      :articles articles
-      :attachments attachments
-      :histories histories})))
+      :chapters (compose-chapters (:LawArticles law))
+      :articles (compose-law-articles (:LawArticles law))
+      :attachments (format-attachments (:LawAttachements law))
+      :histories (format-histories (:LawHistories law))})))
 
 (defn- process-law-json [law]
   (let [dir (->> law :LawCategory
