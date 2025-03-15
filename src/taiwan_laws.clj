@@ -133,6 +133,7 @@
      {:name law-name
       :name-note law-name-note
       :category (:LawCategory law)
+      :level (:LawLevel law)
       :modified-date (format-modified-date (:LawModifiedDate law))
       :url (:LawURL law)
       :foreword foreword
