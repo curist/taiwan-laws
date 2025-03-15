@@ -1,2 +1,3 @@
-.nrepl-port
-blob
+/.nrepl-port
+/blob
+/json
