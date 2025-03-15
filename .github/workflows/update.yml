@@ -23,7 +23,9 @@ jobs:
         run: bb prepare-jsons
 
       - name: extract and process law jsons
-        run: bb process-law-jsons
+        run: |
+          rm -rf json laws
+          bb process-law-jsons
 
       - name: commit and push
         shell: bash {0}
