@@ -2,7 +2,7 @@ name: update laws
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # utc 00:00, tw 08:00
+    # - cron: '0 0 * * *' # utc 00:00, tw 08:00
 
 permissions:
   contents: write

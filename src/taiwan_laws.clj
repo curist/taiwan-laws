@@ -2,6 +2,7 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as string]
             [babashka.fs :as fs]
+            [babashka.http-client :as http]
             [babashka.process :refer [shell]]
             [cheshire.core :as json]
             [selmer.parser :refer [render-file]]))
@@ -13,9 +14,8 @@
 (def en-orders-url "https://law.moj.gov.tw/api/data/enorder.json.zip")
 
 (defn- download-and-unzip-law [url]
-  (let [f (str (fs/create-temp-file {:suffix ".zip"}))]
-    (shell "curl" url "-o" f)
-    (fs/unzip f "blob" {:replace-existing true})))
+  (-> (http/get url {:as :stream}) :body
+      (fs/unzip "blob" {:replace-existing true})))
 
 (defn download-and-unzip-laws []
   (let [urls [ch-laws-url ch-orders-url]]
